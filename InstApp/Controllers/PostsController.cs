@@ -51,7 +51,7 @@ namespace InstApp.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Create([Bind("Id,UserId,Caption")] Post post)
+        public async Task<IActionResult> Create([Bind("Id,IdUser,Caption")] Post post)
         {
             if (ModelState.IsValid)
             {
