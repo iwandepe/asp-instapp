@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using InstApp.Models;
 
 namespace InstApp.Data
 {
@@ -9,5 +10,6 @@ namespace InstApp.Data
             : base(options)
         {
         }
+        public DbSet<InstApp.Models.Post> Post { get; set; }
     }
 }
