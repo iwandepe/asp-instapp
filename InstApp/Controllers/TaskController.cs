@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using InstApp.Data;
 using InstApp.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace InstApp.Controllers
 {
@@ -19,12 +20,13 @@ namespace InstApp.Controllers
             _context = context;
         }
 
+        [Authorize]
         // GET: Task
         public async Task<IActionResult> Index()
         {
             return View(await _context.Tasks.ToListAsync());
         }
-
+        [Authorize]
         // GET: Task/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -42,7 +44,7 @@ namespace InstApp.Controllers
 
             return View(task);
         }
-
+        [Authorize]
         // GET: Task/Create
         public IActionResult Create()
         {
@@ -54,6 +56,7 @@ namespace InstApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("title,Description,Category,IsComplete,DueDate,CreatedDate,UpdatedDate")] Models.Task task)
         {
             if (ModelState.IsValid)
@@ -64,7 +67,7 @@ namespace InstApp.Controllers
             }
             return View(task);
         }
-
+        [Authorize]
         // GET: Task/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -87,6 +90,7 @@ namespace InstApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("title,Description,Category,IsComplete,DueDate,CreatedDate,UpdatedDate")] Models.Task task)
         {
             task.Id = id;
@@ -121,6 +125,7 @@ namespace InstApp.Controllers
         }
 
         // GET: Task/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -141,6 +146,7 @@ namespace InstApp.Controllers
         // POST: Task/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var task = await _context.Tasks.FindAsync(id);
