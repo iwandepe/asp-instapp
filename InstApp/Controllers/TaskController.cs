@@ -78,6 +78,7 @@ namespace InstApp.Controllers
             {
                 return NotFound();
             }
+            ViewData["Task"] = task;
             return View(task);
         }
 
@@ -88,11 +89,14 @@ namespace InstApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("title,Description,Category,IsComplete,DueDate,CreatedDate,UpdatedDate")] Models.Task task)
         {
+            task.Id = id;
+            /*
             if (id != task.Id)
             {
                 return NotFound();
-            }
+            }*/
 
+            ModelState.Remove("id");
             if (ModelState.IsValid)
             {
                 try
