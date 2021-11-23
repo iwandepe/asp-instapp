@@ -8,7 +8,7 @@ namespace InstApp.Models
         [ScaffoldColumn(false)]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public int title { get; set; }
+        public string title { get; set; }
         public string Description { get; set; } = null!;
         public string? Category { get; set; }
         public bool IsComplete { get; set; }
