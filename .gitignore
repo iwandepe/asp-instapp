@@ -261,6 +261,7 @@ Backup*/
 UpgradeLog*.XML
 UpgradeLog*.htm
 ServiceFabricBackup/
+ServiceDependencies/
 *.rptproj.bak
 
 # SQL Server files

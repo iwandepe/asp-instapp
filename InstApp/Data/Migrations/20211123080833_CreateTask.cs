@@ -9,9 +9,6 @@ namespace InstApp.Data.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Post");
-
             migrationBuilder.CreateTable(
                 name: "Tasks",
                 columns: table => new
@@ -34,9 +31,6 @@ namespace InstApp.Data.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Tasks");
-
             migrationBuilder.CreateTable(
                 name: "Post",
                 columns: table => new

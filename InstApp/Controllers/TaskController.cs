@@ -57,7 +57,7 @@ namespace InstApp.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Create([Bind("title,Description,Category,IsComplete,DueDate,CreatedDate,UpdatedDate")] Models.Task task)
+        public async Task<IActionResult> Create([Bind("Title,Description,Category,IsComplete,DueDate,CreatedDate,UpdatedDate")] Models.Task task)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace InstApp.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Edit(int id, [Bind("title,Description,Category,IsComplete,DueDate,CreatedDate,UpdatedDate")] Models.Task task)
+        public async Task<IActionResult> Edit(int id, [Bind("Title,Description,Category,IsComplete,DueDate,CreatedDate,UpdatedDate")] Models.Task task)
         {
             task.Id = id;
             /*
